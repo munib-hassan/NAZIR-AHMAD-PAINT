@@ -10,18 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (menuBtn && navMenu) {
 
         menuBtn.addEventListener("click", function () {
-
             navMenu.classList.toggle("open");
-
         });
-
 
         navMenu.querySelectorAll("a").forEach(function (link) {
 
             link.addEventListener("click", function () {
-
                 navMenu.classList.remove("open");
-
             });
 
         });
@@ -36,10 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const year = document.getElementById("year");
 
     if (year) {
-
-        year.textContent =
-            new Date().getFullYear();
-
+        year.textContent = new Date().getFullYear();
     }
 
 
@@ -58,18 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
         "alternateName": [
             "Nazir Ahmed Paint",
             "Nazir Paint",
-            "Nazir Ahmad Paint Shahkam Chowk"
+            "Nazir Ahmad Paint Shahkam Chowk",
+            "Nazir Paint Shahkam Chowk Lahore"
         ],
 
         "description":
-            "Nazir Ahmad Paint at Shahkam Chowk Lahore. Diamond, Brighto, Master, ICI and other paint brands with colour matching, home delivery, painter provider and quotations.",
+            "Nazir Ahmad Paint at Shahkam Chowk Lahore. Paint products, Diamond, Brighto, Master and ICI brands, colour matching, home delivery, painter service and paint quotations.",
 
-        "telephone":
-            "+923225040002",
+        "telephone": "+923225040002",
 
-        "email":
-            "haseebmanzoor001@gmail.com",
-
+        "email": "haseebmanzoor001@gmail.com",
 
         "address": {
 
@@ -78,17 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
             "streetAddress":
                 "Diamond Paints - Nazir Ahmad Paint, Shahkam Chowk, Defence Rd, Block B Mohlanwal",
 
-            "addressLocality":
-                "Lahore",
+            "addressLocality": "Lahore",
 
-            "postalCode":
-                "54810",
+            "postalCode": "54810",
 
-            "addressCountry":
-                "PK"
+            "addressCountry": "PK"
 
         },
-
 
         "areaServed": [
 
@@ -101,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "Lahore"
 
         ],
-
 
         "brand": [
 
@@ -126,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         ],
-
 
         "hasOfferCatalog": {
 
@@ -172,7 +156,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         },
 
-        "url": window.location.href,
+        "url":
+            "https://munib-hassan.github.io/NAZIR-AHMAD-PAINT/",
 
         "image":
             new URL(
@@ -193,6 +178,5 @@ document.addEventListener("DOMContentLoaded", function () {
         JSON.stringify(businessData);
 
     document.head.appendChild(schema);
-
 
 });
