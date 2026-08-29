@@ -13,6 +13,7 @@
     --gray: #777;
     --line: #dedbd3;
     --whatsapp: #25D366;
+    --navy: #17283a;
 }
 
 html {
@@ -43,9 +44,11 @@ a {
     height: 38px;
     background: #171717;
     color: white;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 0 5%;
     font-size: 12px;
 }
@@ -91,6 +94,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+
     background: white;
     border-bottom: 1px solid #eee;
 }
@@ -98,6 +102,7 @@ header {
 .navbar {
     width: min(1160px, calc(100% - 40px));
     min-height: 82px;
+
     margin: auto;
 
     display: flex;
@@ -114,6 +119,7 @@ header {
 .logo-box {
     width: 43px;
     height: 43px;
+
     border: 1px solid #222;
 
     display: grid;
@@ -138,6 +144,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 30px;
+
     font-size: 13px;
     font-weight: bold;
 }
@@ -150,11 +157,23 @@ nav a:hover {
     color: var(--gold);
 }
 
+
+/* ================= NAV WHATSAPP ================= */
+
 .nav-whatsapp {
     background: #171717;
+
     color: var(--whatsapp) !important;
+
     padding: 11px 17px;
+
     border-radius: 3px;
+
+    transition: 0.2s;
+}
+
+.nav-whatsapp:hover {
+    background: #282828;
 }
 
 .nav-whatsapp span {
@@ -162,11 +181,41 @@ nav a:hover {
     color: var(--whatsapp);
 }
 
+
+/* ================= NAV LOCATION ================= */
+
+.nav-location {
+    background: #f1eee7;
+
+    color: #171717 !important;
+
+    padding: 11px 17px;
+
+    border-radius: 3px;
+
+    transition: 0.2s;
+}
+
+.nav-location:hover {
+    background: #e2ddd2;
+    color: #9b753f !important;
+}
+
+.nav-location span {
+    margin-right: 5px;
+}
+
+
+/* ================= MENU BUTTON ================= */
+
 .menu-btn {
     display: none;
+
     border: none;
     background: none;
+
     font-size: 28px;
+
     cursor: pointer;
 }
 
@@ -177,16 +226,17 @@ nav a:hover {
     min-height: 650px;
 
     /*
-       Elegant dark overlay:
-       Picture visible rahegi,
-       text clear rahega.
+    Premium blue/navy overlay.
+    Black nahi hai.
+    Storefront ki original picture visible rahegi.
     */
 
     background:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.58),
-            rgba(0, 0, 0, 0.28)
+            rgba(12, 28, 43, 0.72),
+            rgba(20, 48, 68, 0.48),
+            rgba(20, 48, 68, 0.20)
         ),
         url("storefront.jpg");
 
@@ -197,26 +247,58 @@ nav a:hover {
     align-items: center;
 
     color: white;
+
+    position: relative;
+}
+
+
+/* Extra soft color layer */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(9, 30, 48, 0.20),
+            rgba(255, 255, 255, 0.03)
+        );
+
+    pointer-events: none;
 }
 
 .hero-content {
     width: min(1160px, calc(100% - 40px));
+
     margin: auto;
+
     padding-bottom: 30px;
+
+    position: relative;
+    z-index: 2;
 }
 
 .small-title {
     font-size: 11px;
     letter-spacing: 3px;
     font-weight: bold;
+
     margin-bottom: 20px;
 }
 
 .hero h1 {
     font-family: Georgia, serif;
+
     font-size: clamp(50px, 7vw, 82px);
+
     line-height: 1;
+
     max-width: 750px;
+
+    text-shadow: 0 3px 12px rgba(0,0,0,.35);
 }
 
 .hero h1 span {
@@ -225,14 +307,21 @@ nav a:hover {
 
 .hero-text {
     max-width: 570px;
+
     margin-top: 25px;
+
     font-size: 16px;
+
+    text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 
 .hero-info {
     display: flex;
+
     gap: 25px;
+
     margin-top: 28px;
+
     font-size: 13px;
 }
 
@@ -250,14 +339,19 @@ nav a:hover {
 
 .intro-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 70px;
 }
 
 .label {
     color: var(--gold);
+
     font-size: 10px;
+
     font-weight: bold;
+
     letter-spacing: 3px;
 }
 
@@ -266,13 +360,17 @@ nav a:hover {
 .about-content h2,
 .contact h2 {
     font-family: Georgia, serif;
+
     font-size: 55px;
+
     line-height: 1.05;
+
     margin-top: 12px;
 }
 
 .intro-text {
     color: var(--gray);
+
     max-width: 500px;
 }
 
@@ -289,13 +387,16 @@ nav a:hover {
 
 .service-grid {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     border-left: 1px solid var(--line);
     border-top: 1px solid var(--line);
 }
 
 .service-card {
     min-height: 330px;
+
     padding: 28px;
 
     background: white;
@@ -308,34 +409,44 @@ nav a:hover {
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.08);
 }
 
 .service-number {
     color: #aaa;
+
     font-size: 11px;
 }
 
 .service-icon {
     font-size: 30px;
+
     margin: 35px 0 20px;
 }
 
 .service-card h3 {
     font-family: Georgia, serif;
+
     font-size: 24px;
 }
 
 .service-card p {
     color: var(--gray);
+
     font-size: 13px;
+
     margin-top: 10px;
 }
 
 .service-card a {
     display: inline-block;
+
     margin-top: 25px;
+
     font-size: 11px;
+
     font-weight: bold;
 }
 
@@ -344,6 +455,7 @@ nav a:hover {
 
 .brands {
     background: #e9e6de;
+
     padding: 100px 0;
 }
 
@@ -353,41 +465,62 @@ nav a:hover {
 
 .center > p:last-child {
     max-width: 600px;
+
     margin: 20px auto;
+
     color: var(--gray);
 }
 
 .brand-grid {
     display: grid;
+
     grid-template-columns: repeat(5, 1fr);
+
     gap: 12px;
 }
 
 .brand-box {
     height: 170px;
+
     background: white;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
 
     border: 1px solid #ddd;
+
+    transition: .25s;
+}
+
+.brand-box:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08);
 }
 
 .brand-box strong {
     font-family: Georgia, serif;
+
     font-size: 25px;
 }
 
 .brand-box small {
     font-size: 9px;
+
     letter-spacing: 3px;
+
     color: #777;
 }
 
 .brand-box.dark {
     background: #171717;
+
     color: white;
 }
 
@@ -400,33 +533,45 @@ nav a:hover {
 
 .about {
     background: white;
+
     padding: 110px 0;
 }
 
 .about-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 80px;
+
     align-items: center;
 }
 
 .about-image {
     height: 530px;
+
     position: relative;
+
     overflow: hidden;
 }
 
 .about-image img {
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
 }
 
 .image-caption {
     position: absolute;
+
     left: 20px;
+
     bottom: 20px;
+
     background: white;
+
     padding: 14px 18px;
 }
 
@@ -441,21 +586,29 @@ nav a:hover {
 
 .image-caption span {
     color: #777;
+
     font-size: 10px;
 }
 
 .about-content p:not(.label) {
     color: var(--gray);
+
     margin-top: 20px;
+
     font-size: 14px;
 }
 
 .points {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 12px;
+
     margin-top: 25px;
+
     font-size: 12px;
+
     font-weight: bold;
 }
 
@@ -464,22 +617,31 @@ nav a:hover {
 
 .quotation {
     background: #171717;
+
     color: white;
+
     padding: 100px 0;
+
     text-align: center;
 }
 
 .quotation h2 {
     font-family: Georgia, serif;
+
     font-size: clamp(30px, 5vw, 52px);
+
     line-height: 1.2;
+
     margin-top: 20px;
 }
 
 .quote-small {
     margin-top: 30px;
+
     color: #999;
+
     font-size: 10px;
+
     letter-spacing: 4px;
 }
 
@@ -492,7 +654,9 @@ nav a:hover {
 
 .contact-grid {
     display: grid;
+
     grid-template-columns: 1.2fr .8fr;
+
     background: white;
 }
 
@@ -502,24 +666,40 @@ nav a:hover {
 
 .contact-text {
     color: var(--gray);
+
     margin-top: 20px;
+
     max-width: 550px;
 }
 
 .contact-list {
     display: grid;
+
     grid-template-columns: 1fr;
+
     gap: 10px;
+
     margin-top: 35px;
 }
 
 .contact-list a {
     border: 1px solid var(--line);
+
     padding: 15px;
 
     display: flex;
+
     align-items: center;
+
     gap: 15px;
+
+    transition: .2s;
+}
+
+.contact-list a:hover {
+    border-color: var(--gold);
+
+    transform: translateX(3px);
 }
 
 .contact-icon {
@@ -533,7 +713,9 @@ nav a:hover {
 
 .contact-list small {
     color: #888;
+
     font-size: 9px;
+
     letter-spacing: 2px;
 }
 
@@ -541,33 +723,57 @@ nav a:hover {
     font-size: 13px;
 }
 
+
+/* ================= LOCATION ================= */
+
 .location-card {
     background: #171717;
+
     color: white;
+
     padding: 60px 40px;
 }
 
 .location-card h3 {
     font-family: Georgia, serif;
+
     font-size: 32px;
+
     line-height: 1.1;
+
     margin-top: 12px;
 }
 
 .location-card > p:not(.label) {
     color: #aaa;
+
     font-size: 13px;
+
     margin-top: 20px;
 }
 
 .map-button {
     display: inline-block;
+
     margin-top: 30px;
+
     background: white;
+
     color: #111;
+
     padding: 14px 20px;
+
     font-size: 12px;
+
     font-weight: bold;
+
+    transition: .2s;
+}
+
+.map-button:hover {
+    background: var(--gold);
+
+    color: white;
 }
 
 
@@ -575,14 +781,19 @@ nav a:hover {
 
 footer {
     background: #111;
+
     color: white;
+
     padding: 55px 0 20px;
 }
 
 .footer-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr 1fr;
+
     gap: 40px;
+
     padding-bottom: 40px;
 }
 
@@ -592,24 +803,34 @@ footer {
 
 .footer-grid p {
     color: #999;
+
     font-size: 12px;
+
     margin-top: 10px;
 }
 
 .footer-links,
 .footer-contact {
     display: flex;
+
     flex-direction: column;
+
     gap: 9px;
+
     font-size: 12px;
+
     color: #aaa;
 }
 
 .copyright {
     border-top: 1px solid #303030;
+
     padding-top: 17px;
+
     text-align: center;
+
     color: #666;
+
     font-size: 10px;
 }
 
@@ -628,19 +849,24 @@ footer {
 
     nav {
         position: absolute;
+
         top: 82px;
+
         left: 0;
         right: 0;
 
         background: white;
 
         display: none;
+
         flex-direction: column;
+
         align-items: stretch;
 
         padding: 15px 25px;
 
-        box-shadow: 0 10px 25px rgba(0,0,0,.1);
+        box-shadow:
+            0 10px 25px rgba(0,0,0,.1);
     }
 
     nav.open {
@@ -649,6 +875,7 @@ footer {
 
     nav a {
         padding: 13px 0;
+
         border-bottom: 1px solid #eee;
     }
 
@@ -658,7 +885,15 @@ footer {
 
     .nav-whatsapp {
         text-align: center;
+
         margin-top: 10px;
+
+        padding: 12px !important;
+    }
+
+    .nav-location {
+        text-align: center;
+
         padding: 12px !important;
     }
 
@@ -685,6 +920,8 @@ footer {
     }
 }
 
+
+/* ================= SMALL MOBILE ================= */
 
 @media (max-width: 600px) {
 
@@ -713,34 +950,53 @@ footer {
         top: 70px;
     }
 
+
+    /* ================= MOBILE HERO ================= */
+
     .hero {
         min-height: 570px;
 
-        /* Mobile par thoda stronger but clean overlay */
+        /*
+        Mobile ke liye premium navy-blue overlay.
+        Image black nahi hogi.
+        */
+
         background:
             linear-gradient(
                 90deg,
-                rgba(0, 0, 0, 0.55),
-                rgba(0, 0, 0, 0.25)
+                rgba(10, 30, 48, 0.70),
+                rgba(20, 52, 72, 0.42),
+                rgba(20, 52, 72, 0.18)
             ),
             url("storefront.jpg");
 
         background-size: cover;
+
         background-position: center;
     }
 
     .hero h1 {
         font-size: 49px;
+
+        text-shadow:
+            0 3px 12px rgba(0,0,0,.40);
     }
 
     .hero-text {
         font-size: 14px;
+
+        text-shadow:
+            0 2px 8px rgba(0,0,0,.35);
     }
 
     .hero-info {
         gap: 12px;
+
         flex-wrap: wrap;
     }
+
+
+    /* ================= SECTIONS ================= */
 
     .intro,
     .services,
@@ -758,9 +1014,15 @@ footer {
         font-size: 42px;
     }
 
+
+    /* ================= SERVICES ================= */
+
     .service-grid {
         grid-template-columns: 1fr;
     }
+
+
+    /* ================= BRANDS ================= */
 
     .brand-grid {
         grid-template-columns: 1fr 1fr;
@@ -774,6 +1036,9 @@ footer {
         grid-column: span 2;
     }
 
+
+    /* ================= ABOUT ================= */
+
     .about-image {
         height: 350px;
     }
@@ -782,6 +1047,9 @@ footer {
         grid-template-columns: 1fr;
     }
 
+
+    /* ================= CONTACT ================= */
+
     .contact-grid > div:first-child {
         padding: 35px 25px;
     }
@@ -789,6 +1057,9 @@ footer {
     .location-card {
         padding: 40px 25px;
     }
+
+
+    /* ================= FOOTER ================= */
 
     .footer-grid {
         grid-template-columns: 1fr;
